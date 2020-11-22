@@ -92,12 +92,22 @@ DATABASES = {
 #password=GreatUsutu@2019
 #database=usutucoz_usutu
 
+
+"""
+'ENGINE': 'django.db.backends.mysql', 
+'NAME': 'usutu',
+'USER': 'mysql',
+'PASSWORD': 'mysql',
+"""
+
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'usutu',
-        'USER': 'mysql',
-        'PASSWORD': 'mysql',
+        'NAME': 'usutucoz_usutu',
+        'USER': 'usutucoz_mysql',
+        'PASSWORD': 'GreatUsutu@2019',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
