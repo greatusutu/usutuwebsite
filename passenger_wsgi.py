@@ -1,0 +1,1 @@
+from great_usutu.wsgi import application
