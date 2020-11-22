@@ -1,0 +1,438 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="./Images/Banner_Image.jpg" />
+    <title>Great Usutu Website</title>
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
+
+
+    <link rel="icon" href="{% static 'Images/logo.png' %}" />
+    <link rel="apple-touch-icon" href="{% static 'Images/logo.png' %}" />
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    {% if template %}
+    <header id="header">
+        <div class="container">
+            <div class="header_items">
+                <div class="logo">
+                    <a href="#">
+                        <img src="{{template.logo.url}}">
+                    </a>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li class="mobo">
+                            <a href="#">Home</a>
+                        </li>
+                        {% if menu%}
+                        {% for i in menu %}
+                        {% if i.internal_link %}
+                        <li class="mobo">
+                            <a href="#{{i.internal_link}}">{{i.title}}</a>
+                        </li>
+                        {%elif i.external_link%}
+                        <li class="mobo">
+                            <a href={{i.external_link}}>{{i.title}}</a>
+                        </li>
+                        {%endif%}
+                        {%endfor%}
+                        {% endif %}
+                    </ul>
+                </nav>
+
+                <div class="menu_toggle">
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- Header -->
+
+    <!-- Banner -->
+    <section id="banner">
+        <div class="banner_image">
+            <img src={{template.banner_image.url}}>
+        </div>
+        <div class="container">
+            <div class="banner_items">
+                <div class="banner_heading">
+                    <h1>
+                        {{template.banner_title | safe}}
+                    </h1>
+                </div>
+                <div class="banner_text">
+                    <p>{{template.banner_text}}</p>
+                </div>
+                <div class="banner_button">
+                    <button>
+                        <a href="#{{template.button_will_take_to}}">
+                            {{template.button_text}}
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Banner -->
+
+    <!-- Banner Box -->
+    <section id="banner_boxes">
+        <div class="container">
+            <div class="banner_box">
+
+                <div class="column_big">
+                    <div class="box_items big">
+                        <div class="box_big_heading">
+                            <h2>{{template.feature_card_title}}</h2>
+                        </div>
+                        <div class="box_text">
+                            <p>
+                                {{template.feature_card_text}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {%if cards_banner %}
+                {% for card in cards_banner %}
+                <div class="column_small">
+                    <div class="box_items">
+                        <div class="box_icon">
+                            <img src={{card.image.url}}>
+                        </div>
+                        <div class="box_heading">
+                            <h2>{{card.title}}</h2>
+                        </div>
+                        <div class="box_text">
+                            <p>{{card.text}}</p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                {%endif%}
+
+
+
+            </div>
+        </div>
+    </section>
+    <!-- Banner Box -->
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <div class="section_heading">
+                <h5>About Us</h5>
+            </div>
+            <div class="section_heading_big">
+                <h1>{{template.about_title}}</h1>
+            </div>
+            <div class="about_container">
+                <div class="column_6">
+                    <div class="about_image">
+                        <img src={{template.about_image.url}}>
+                    </div>
+                </div>
+                <div class="column_6">
+                    <div class="about_text">
+                        {{template.about_text | safe}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About -->
+
+    <!-- Services -->
+    <section id="services">
+        <div class="global_margin"></div>
+        <div class="container">
+
+            <div class="section_heading">
+                <h5>Services</h5>
+            </div>
+            <div class="section_heading_big">
+                <h1>{{template.service_title}}</h1>
+            </div>
+
+            <div class="service_boxes">
+                {%if cards_service %}
+                {% for card in cards_service %}
+                <div class="column_3 column_sm_4">
+                    <div class="service_box_items">
+                        <div class="box_icon">
+                            <img src={{card.image.url}}>
+                        </div>
+                        <div class="box_heading">
+                            <h2>{{card.title}}</h2>
+                        </div>
+                        <div class="box_text">
+                            <p>{{card.text}}</p>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+                {%endif%}
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+    <!-- Services -->
+
+    <!-- Team -->
+    <section id="team">
+        <div class="global_margin">
+            <div class="container">
+
+                <div class="section_heading">
+                    <h5>Team</h5>
+                </div>
+                <div class="section_heading_big">
+                    <h1>{{template.team_title}}</h1>
+                </div>
+                <div class="section_heading_text">
+                    <p>{{template.team_text}}
+                    </p>
+                </div>
+
+                <div class="team_boxes">
+                    {%if cards_team %}
+                    {% for card in cards_team %}
+
+                    <div class="column_3 column_sm_6">
+                        <div class="team_box_items">
+                            <div class="team_box">
+                                <div class="team_image">
+                                    <img src="{% static "Images/team.jpg" %}" />
+                                </div>
+                            </div>
+                            <div class="team_toggle">
+                                <div class="team_heading">
+                                    <h5>{{card.title}}</h5>
+                                </div>
+                                <div class="team_text">
+                                    <p>{{card.text}}</p>
+                                </div>
+                                <div class="team_details">
+                                    <p>
+                                        {{card.team_member_description}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                    {%endif%}
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Team -->
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="global_margin">
+            <div class="container">
+                <div class="footer_container">
+
+                    <div class="column_4">
+                        <div class="footer_items">
+                            <div class="footer_logo">
+                                <a href="#">
+                                    <img src={{template.logo.url}}>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column_2">
+                        <div class="footer_items">
+                            <div class="footer_heading" id="item_1">
+                                <a class="footer_link" href="#item_1">
+                                    Quick Links
+                                    <img class="add" src="{% static 'Images/icons/add.png'%}">
+                                    <img class="remove" src="{% static 'Images/icons/remove.png'%}">
+                                </a>
+                                <nav class="answer">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="#about">About us</a>
+                                        </li>
+                                        <li>
+                                            <a href="#services">Services</a>
+                                        </li>
+                                        <li>
+                                            <a href="#team">Team</a>
+                                        </li>
+                                        <li>
+                                            <a href="#footer">Contact Us</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column_2">
+                        <div class="footer_items">
+                            <div class="footer_heading" id="item_2">
+                                <a class="footer_link" href="#item_2">
+                                    Services
+                                    <img class="add" src="{% static 'Images/icons/add.png'%}">
+                                    <img class="remove" src="{% static 'Images/icons/remove.png'%}">
+                                </a>
+                                <nav class="answer">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Trades</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Risk Management</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Consulting</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column_2">
+                        <div class="footer_items">
+                            <div class="footer_heading" id="item_3">
+                                <a class="footer_link" href="#item_3">
+                                    Privacy Policy
+                                    <img class="add" src="{% static 'Images/icons/add.png'%}">
+                                    <img class="remove" src="{% static 'Images/icons/remove.png'%}">
+                                </a>
+                                <nav class="answer">
+                                    <ul>
+                                        <li>
+                                            <a href="#">Terms</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Consult Policy</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Agreements</a>
+                                        </li>
+                                        <li>
+                                            <a href="#team">Privacy Policy</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column_2">
+                        <div class="footer_items">
+                            <div class="footer_heading">
+                                <h5>Socials</h5>
+                            </div>
+                            <div class="social_icons">
+                                <div class="single_icon">
+                                    <a href={{template.social_link_1}}>
+                                        <img src={{template.social_image_1.url}}>
+                                    </a>
+                                </div>
+                                <div class="single_icon">
+                                    <a href={{template.social_link_2}}>
+                                        <img src={{template.social_image_2.url}}>
+                                    </a>
+                                </div>
+                                <div class="single_icon">
+                                    <a href={{template.social_link_3}}>
+                                        <img src={{template.social_image_3.url}}>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright_area">
+            <div class="container">
+                <div class="detail">
+                    <div class="text">
+                        <p>© 2020 All Rights Reserved By <a href="#">Great Usutu</a></p>
+                    </div>
+                    <div class="text">
+                        <p>Developed By <a href="www.manksdev.com">Manks Dev</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- Footer -->
+    {% else%}
+    <h1>Publish one template</h1>
+    {%endif%}
+</body>
+
+<script>
+    const hamburger = document.querySelector(".menu_toggle");
+    const menuss = document.querySelector(".menu");
+
+    hamburger.addEventListener("click", () => {
+        if (menuss.classList.contains("open")) {
+            menuss.classList.remove("open");
+        }
+        else {
+            menuss.classList.add("open");
+        }
+
+    });
+
+    document.querySelectorAll(".mobo").forEach(item => {
+        item.addEventListener("click", () => {
+            menuss.classList.remove("open");
+        });
+    })
+
+    document.querySelectorAll(".team_heading").forEach((item) => {
+
+        item.addEventListener("mouseenter", () => {
+            item.parentElement.querySelector(".team_image").classList.add("team_imag")
+            item.parentElement.querySelector(".team_details").classList.add("team_detail")
+
+        })
+        item.addEventListener("mouseleave", () => {
+            item.parentElement.querySelector(".team_image").classList.remove("team_imag")
+            item.parentElement.querySelector(".team_details").classList.remove("team_detail")
+
+        })
+
+    })
+</script>
+
+</html>
