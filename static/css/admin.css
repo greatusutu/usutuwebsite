@@ -1,0 +1,38 @@
+#header{
+  height: 50px;
+  color: black;
+  background:white;
+}
+#branding h1{
+  color: black;
+}
+a:link,
+a:visited{
+  color:#10284e;
+}
+div.breadcrumbs{
+  background:#333;
+  color:white;
+}
+div.breadcrumbs a{
+  color:white;
+}
+.module h2, .module caption, .inline-group h2{
+  background:#333;
+}
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+  background:black;
+  color:white;
+  
+}
+
+#header a:link, #header a:visited {
+  color:black
+}
+.main{
+  margin-top: 10px;
+}
+.button.default, input[type=submit].default, .submit-row input.default{
+  background:green;
+  color:white;
+}
