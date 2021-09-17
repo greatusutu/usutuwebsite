@@ -34,7 +34,7 @@ def index(request):
       try:
 
         form = contactformemail()
-        if(send_mail(subject, message, 'Kegaogetswe.moyaba@usutu.co.za', ['Kegaogetswe.moyaba@usutu.co.za'])):
+        if(send_mail(subject, message, 'info@usutu.co.za', ['info@usutu.co.za'])):
           form = contactformemail()
           messages.success(request, 'Successfully send.We will get back to you soon.', extra_tags='alert')
           return redirect("http://127.0.0.1:8000/#contact")
