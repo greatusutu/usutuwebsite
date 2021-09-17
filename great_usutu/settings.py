@@ -26,7 +26,7 @@ SECRET_KEY = 'e9lb_04_8tjc4tj2^vo)ld*tsg@6)r*_he2()d&hqhjp$=yr5!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['usutu.co.za','localhost']
+ALLOWED_HOSTS = ['usutu.co.za', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'great_usutu.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -87,10 +88,6 @@ DATABASES = {
     }
 }
 '''
-#password=mysqlmsql
-#user=usutucoz_mysql
-#password=GreatUsutu@2019
-#database=usutucoz_usutu
 
 
 """
@@ -99,7 +96,6 @@ DATABASES = {
 'USER': 'mysql',
 'PASSWORD': 'mysql',
 """
-
 
 
 DATABASES = {
@@ -150,12 +146,40 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
 #media folder settings
-MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'
 
+
+#Email settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'mail.usutu.co.za'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'info@usutu.co.za'
+EMAIL_HOST_PASSWORD = 'Nyambose@1981'
+
+
+#Messages
+
+from django.contrib.messages import constants as messages
+
+#Message tags
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
+
+#Message storage
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'

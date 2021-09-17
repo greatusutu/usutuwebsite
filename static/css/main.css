@@ -404,7 +404,7 @@ img {
     position: relative;
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: stretch;
     margin: 0 -12px;
 }
 
@@ -424,6 +424,7 @@ img {
     font-size: 1.4rem;
     font-weight: 400;
 }
+
 
 /* .team_imag .team_detail {
     visibility: visible;
@@ -464,6 +465,100 @@ img {
     font-size: .9rem;
     line-height: 1.1;
 }
+
+.team_image {
+    margin: 0 12px;
+    border: none;
+}
+
+/* Contact */
+#contact {
+    position: relative;
+    margin-top: 40px;
+}
+
+.contact_container {
+    margin: 0 -12px;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.contact_image {
+    margin: 0 12px;
+}
+
+.contact_text {
+    margin: 0 12px;
+}
+
+#id_Message {
+ border-radius: 25px;
+  border: 2px solid #374040;
+  padding: 20px;
+  width: 590px;
+  height: 50px;
+}
+
+#id_Name {
+ border-radius: 25px;
+  border: 2px solid #374040;
+  padding: 20px;
+  width: 635px;
+  height: 10px;
+}
+
+#id_Email {
+ border-radius: 25px;
+  border: 2px solid #374040;
+  padding: 20px;
+  width: 635px;
+  height: 10px;
+}
+
+.getintouch {
+color: #374040;
+font-size: 25px;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #374040;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #374040;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.contact_items form {
+    font-size: 1rem;
+    color: #fafafa;
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+
 
 /* Footer */
 #footer {
