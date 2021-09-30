@@ -297,6 +297,11 @@ img {
     width: 23%;
 }
 
+
+button .banner_button .close-button {
+    padding: auto;
+}
+
 /* About */
 #about {
     position: relative;
@@ -479,7 +484,7 @@ img {
 
 .contact_container {
     margin: 0 -12px;
-    display: flex;
+        display: 0;
     align-items: center;
     flex-flow: row wrap;
 }
@@ -689,3 +694,20 @@ input[type=text] {
     color: #fff;
     font-weight: 300;
 }
+
+
+#alert alert-success {
+    background-color: #28a745 !important;
+}
+
+#alert alert-error div {
+    background-color: #ff0000;
+}
+/*
+#alert alert-alert alert-success mb-0 alert-dismissible fade show {
+    background-color: #28a745 !important;
+}
+
+.alert alert-alert alert-success mb-0 alert-dismissible fade show {
+    background-color: #28a745 !important;
+} */

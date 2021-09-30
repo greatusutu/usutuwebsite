@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+    'messages_extends'
 ]
 
 MIDDLEWARE = [
@@ -173,7 +174,7 @@ from django.contrib.messages import constants as messages
 
 #Message tags
 MESSAGE_TAGS = {
-    messages.DEBUG: 'alert-info',
+    messages.DEBUG: 'alert-secondary',
     messages.INFO: 'alert-info',
     messages.SUCCESS: 'alert-success',
     messages.WARNING: 'alert-warning',
