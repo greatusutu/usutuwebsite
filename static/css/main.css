@@ -402,7 +402,7 @@ img {
 /* Team */
 .team_boxes {
     position: relative;
-    display: flex;
+    display: 0;
     flex-flow: row wrap;
     align-items: stretch;
     margin: 0 -12px;
