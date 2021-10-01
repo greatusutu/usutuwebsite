@@ -268,14 +268,14 @@
 
 
                     <div class="contact_form">
-                        <form method="post">
-                            <h1 class="getintouch hover-underline-animation">Get In Touch</h1>
+                        <form method="post" style="text-align: center">
+                            <h1 class="getintouch hover-underline-animation" style="text-align: center">Get In Touch</h1>
                             <br/>
                             {% csrf_token %}
                             {{form.as_p}}
                             <br/>
-                            <div class="banner_button">
-                                <button type="submit">Submit</button>
+                            <div class="banner_button"style="text-align: center">
+                                <button type="submit" >Submit</button>
                                 <br/>
                                 <br/>
                                 {% if messages %}
