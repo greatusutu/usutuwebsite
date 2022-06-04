@@ -355,14 +355,15 @@ img {
     position: relative;
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
+    align-items: stretch;
     margin: 0 -12px;
+    justify-content: space-evenly;
 }
 
 .service_box_items {
     padding: 40px;
     background: #fff;
-    margin: 0 12px;
+    margin: 20px 12px;
     border-bottom: 5px solid #fff;
     box-shadow: 1px 10px 20px rgba(0, 0, 0, .1);
     transition: all .3s ease;
@@ -370,6 +371,11 @@ img {
     -moz-transition: all .3s ease;
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
+    max-width: 330px;
+    padding: 2.5% 20px;
+    min-height: 40vh;
+    height: auto;
+}
 }
 
 .service_box_items img {
@@ -386,6 +392,10 @@ img {
     -ms-transition: all .3s ease;
     -o-transition: all .3s ease;
 }
+
+/*
+    Cards
+*/
 
 /* .service_box_items:hover h2 {
     color: #fff!important;
@@ -406,6 +416,7 @@ img {
     flex-flow: row wrap;
     align-items: stretch;
     margin: 0 -12px;
+    justify-content: space-evenly;
 }
 
 .team_box_items {
@@ -499,7 +510,8 @@ img {
   border: 2px solid #374040;
   padding: 20px;
   width: 590px;
-  height: 50px;
+  height: 100px;
+  box-sizing: border-box;
 }
 
 #id_Name {
@@ -690,4 +702,135 @@ input[type=text] {
     font-size: .95rem;
     color: #fff;
     font-weight: 300;
+}
+
+div.contact_form p > input, textarea{
+    max-width: 55vw;
+}
+
+/*================================================*/
+.overylay_team_wrap{
+  .teamoverly_wrap{
+    position: relative;
+    overflow: hidden;
+    .teamoverly_img{
+      display: block;
+      width: 100%;
+      height: auto;
+      will-change: transform;
+     -webkit-transition: -webkit-transform 0.5s;
+    transition: -webkit-transform 0.5s;
+    -o-transition: transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s,
+    -webkit-transform 0.5s;
+      img {
+
+      }
+    }
+    .teamoverly_info{
+      position: absolute;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      text-align: center;
+      opacity: 0;
+      background: rgba(25, 25, 25, .65);
+      -webkit-transition: opacity .4s;
+     -o-transition: opacity .4s;
+     transition: opacity .4s;
+      .teamoverly_info_inner{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        transform:  translateY(-50%);
+        height: auto;
+        padding: 35px 30px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        .teamoverly_info_title{
+          .teamoverly_name{
+            position: relative;
+            color: #fff;
+            z-index: 3;
+            text-transform: capitalize;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+            -webkit-transform: translate3d(0, 40px, 0);
+                    transform: translate3d(0, 40px, 0);
+          }
+        .teamoverly_Post{
+            position: relative;
+            color: #fff;
+            z-index: 3;
+            text-transform: capitalize;
+        -webkit-transition: all 0.4s;
+            -o-transition: all 0.4s;
+            transition: all 0.4s;
+            -webkit-transform: translate3d(0, 20px, 0);
+                    transform: translate3d(0, 20px, 0);
+            }
+        }
+        .teamoverly_social{
+          ul.teamoverly_social_item{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+              display: inline-block;
+              margin-right: 10px;
+              a {
+                position: relative;
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                z-index: 3;
+                color: #fff;
+                text-align: center;
+                text-decoration: none;
+                background: #0077ff;
+                border-radius: 50%;
+               -webkit-transform: translate3d(0, 30px,  0);
+                transform: translate3d(0, 30px,  0);
+                -webkit-transition: all 0.5s;
+                -o-transition: all 0.5s;
+                transition: all 0.5s;
+                &:hover {
+                     background: #772ADB;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &:hover {
+      .teamoverly_info{
+        opacity: 1;
+        .teamoverly_name {
+           transform: translate3d(0, 0, 0) !important;
+             -webkit-transform: translate3d(0, 0, 0) !important;
+        }
+        .teamoverly_Post {
+          transform: translate3d(0, 0, 0) !important;
+              -webkit-transform: translate3d(0, 0, 0) !important;
+        }
+      }
+      .teamoverly_social {
+        ul {
+          li {
+            a {
+               transform: translate3d(0, 0, 0) !important;
+              -webkit-transform: translate3d(0, 0, 0) !important;
+            }
+          }
+        }
+      }
+    }
+  }
 }

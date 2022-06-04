@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE html>
+{{ '<' }}{{ '!DOCTYPE html>' }}
 <html lang="en">
 
 <head>
@@ -165,19 +165,17 @@
     <!-- Services -->
     <section id="services">
         <div class="global_margin"></div>
-        <div class="container">
+            <div class="container">
+                <div class="section_heading">
+                    <h5>Services</h5>
+                </div>
+                <div class="section_heading_big">
+                    <h1>{{template.service_title}}</h1>
+                </div>
+                <div class="service_boxes">
+                    {%if cards_service %}
+                    {% for card in cards_service %}
 
-            <div class="section_heading">
-                <h5>Services</h5>
-            </div>
-            <div class="section_heading_big">
-                <h1>{{template.service_title}}</h1>
-            </div>
-
-            <div class="service_boxes">
-                {%if cards_service %}
-                {% for card in cards_service %}
-                <div class="column_3 column_sm_4">
                     <div class="service_box_items">
                         <div class="box_icon">
                             <img src={{card.image.url}}>
@@ -189,16 +187,11 @@
                             <p>{{card.text}}</p>
                         </div>
                     </div>
+
+                    {%endfor%}
+                    {%endif%}
                 </div>
-                {%endfor%}
-                {%endif%}
-
-
-
-
-            </div>
-
-        </div>
+         </div>
     </section>
     <!-- Services -->
 
@@ -274,7 +267,7 @@
                             {% csrf_token %}
                             {{form.as_p}}
                             <br/>
-                            <div class="banner_button"style="text-align: center">
+                            <div class="banner_button" style="text-align: center">
                                 <button type="submit" >Submit</button>
                                 <br/>
                                 <br/>

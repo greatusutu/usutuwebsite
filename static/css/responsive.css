@@ -603,3 +603,9 @@
     }
     
 }
+
+@media screen and (max-width: 600px) {
+  div.contact_form p > input, textarea {
+    max-width: 70vw;
+  }
+}
