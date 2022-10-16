@@ -212,35 +212,37 @@
                 </div>
 
                 <div class="team_boxes">
-                    {%if cards_team %}
-                    {% for card in cards_team %}
-
-                    <div class="column_3 column_sm_6">
-                        <div class="team_box_items">
-                            <div class="team_box">
-                                <div class="team_image">
-                                    <!--<img src="{% static "Images/team.jpg" %}" /> -->
-                                    <img src="{{card.image.url}}" />
-                                </div>
-                            </div>
-                            <div class="team_toggle">
-                                <div class="team_heading">
-                                    <h5>{{card.title}}</h5>
-                                </div>
-                                <div class="team_text">
-                                    <p>{{card.text}}</p>
-                                </div>
-                                <div class="team_details">
-                                    <p>
-                                        {{card.team_member_description}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                {%if cards_team %}
+                {% for card in cards_team %}
+                <div class="column_3 column_sm_6">
+                <div class="team_box_items">
+                <div class="card">
+                    <div class="team_box">
+                    <div class="team_image">
+                    <img src="{{card.image.url}}" class="card__image">
                     </div>
-                    {%endfor%}
-                    {%endif%}
+                    </div>
+                    <div class="card__overlay">
+                        <div class="team_heading">
+                            <h5>{{card.title}}</h5>
+                        </div>
+                        <div class="team_text">
+                            <p>{{card.text}}</p>
+                        </div>
+                        <p>{{card.team_member_description}}</p>
+                    </div>
+                    <div class="team_heading">
+                            <h5>{{card.title}}</h5>
+                        </div>
+                        <div class="team_text">
+                            <p>{{card.text}}</p>
+                        </div>
                 </div>
+                </div>
+                </div>
+                {%endfor%}
+                {%endif%}
+</div>
 
             </div>
         </div>
