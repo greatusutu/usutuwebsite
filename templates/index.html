@@ -222,7 +222,7 @@
                            {% for card in cards_team %}
                                 <li data-target="#myCarousel" data-slide-to={{forloop.counter0}}  class="{% if forloop.first%}active{%endif%}"></li>
                            {% endfor %}
-                        </ol>
+                       </ol>
 
                        <div class="carousel-inner">
                            <div class="item active">
@@ -264,10 +264,13 @@
                 <div class="hidden-xs">
                   <div id="myCarousel2" class="carousel slide" data-ride="carousel">
                        <ol class="carousel-indicators">
-                           {% for card in cards_team|slice:":4" %}
+                           {% widthratio cards_team|length 2 1 as midpoint%}
+                                {% with ":"|add:midpoint as teamSlice %}
+                                    {% for card in cards_team|slice:teamSlice %}
                             <li data-target="#myCarousel2" data-slide-to={{forloop.counter0}}  class="{% if forloop.first%}active{%endif%}"></li>
-                           {% endfor %}
-                        </ol>
+                                    {% endfor %}
+                               {% endwith %}
+                       </ol>
 
                        <div class="carousel-inner">
                            <div class="item active">
