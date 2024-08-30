@@ -609,3 +609,18 @@
     max-width: 70vw;
   }
 }
+
+@media (min-width: 767px){
+    .carousel-control-next,
+    .carousel-control-prev {
+        margin: 0% -43% 0% 45%;
+    }
+}
+
+@media (max-width: 767px) {
+    .carousel-control-next,
+    .carousel-control-prev {
+        margin: 0% -40% 0% 42%;
+}
+
+}
