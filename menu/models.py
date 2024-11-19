@@ -4,7 +4,8 @@ BUTTON_CHOICES = (
   ('about', 'About Section'),
   ('services', 'Service Section'),
   ('team', 'Team Section'),
-  ('contact', 'Contact Section')
+  ('contact', 'Contact Section'),
+  ('partners', 'partners section'),
 )
 
 

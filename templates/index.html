@@ -4,11 +4,17 @@
 
 <head>
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:image" content="./Images/Banner_Image.jpg" />
     <title>Great Usutu Technologies</title>
-    <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="stylesheet" href="static/css/main.css">
     <link rel="stylesheet" href="{% static 'css/responsive.css'%}">
 
 
@@ -39,6 +45,7 @@
                         <li class="mobo">
                             <a href="#">Home</a>
                         </li>
+
                         {% if menu%}
                         {% for i in menu %}
                         {% if i.internal_link %}
@@ -160,6 +167,7 @@
                     <div class="about_text">
                         {{template.about_text | safe}}
 
+
                     </div>
                 </div>
             </div>
@@ -199,6 +207,74 @@
          </div>
     </section>
     <!-- Services -->
+
+<!-- Partners -->
+<section id="partners">
+    <div class="global_margin"></div>
+    <div class="container">
+        <div class="section_heading">
+            <h5>Our Partners</h5>
+        </div>
+        <div class="section_heading_big">
+            <h1>{{template.partners_title}}</h1>
+        </div>
+        <div class="partners_boxes">
+            {% if cards_partners %}
+            {% for card in cards_partners %}
+            <a href="{{card.cardURL}}" target="_blank" style="text-decoration: none; color: inherit;">
+                <div class="partners_box_items">
+                    <div class="box_icon">
+                        <img style="width:180px" src={{card.image.url}}>
+                    </div>
+                    <div style="text-align: left !important;" class="box_heading">
+                        <h2>{{card.title}}</h2>
+                    </div>
+                    <div class="box_text">
+                        <p>{{card.text}}</p>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- Partners -->
+
+
+<!-- client reviews -->
+<section id="clients">
+    <div class="global_margin"></div>
+    <div class="container">
+        <div class="section_heading">
+            <h5>Clients Reviews</h5>
+        </div>
+        <div class="section_heading_big">
+            <h1>{{template.client_title}}</h1>
+        </div>
+        <div class="section_heading_text">
+            <p>{{template.client_text}}</p>
+        </div>
+        <div class="clients_boxes slider">
+            {% if cards_clients %}
+            {% for card in cards_clients %}
+            <div class="clients_box_items">
+                <div class="box_icon">
+                    <img style="width:80px;" src={{card.image.url}}>
+                </div>
+                <div style="text-align: left !important;" class="box_heading">
+                    <h2>{{card.title}}</h2>
+                </div>
+                <div style="max-height:80px;" class="box_text">
+                    <p>{{card.text}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</section>
+<!-- client reviews -->
 
     <!-- Team -->
     <section id="team">
@@ -483,7 +559,41 @@
     {% else%}
     <h1>Publish one template</h1>
     {%endif%}
+
+    <!--  -->
+
+    <!-- jQuery and Slick Carousel JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <!-- Slick Carousel -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 2,
+                slideToScroll:1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 4000,
+                 responsive: [
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 </body>
+
+
+
 
 <script>
     const hamburger = document.querySelector(".menu_toggle");
@@ -520,5 +630,8 @@
 
     })
 </script>
+
+
+
 
 </html>

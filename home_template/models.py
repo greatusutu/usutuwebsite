@@ -5,6 +5,7 @@ BUTTON_CHOICES = (
   ('services', 'Service Section'),
   ('team', 'Team Section'),
   ('contact', 'Contact Section'),
+  ('partners', 'Partners Section'),
 )
 
 
@@ -30,6 +31,11 @@ class Template(models.Model):
     social_image_3 = models.ImageField(upload_to='photos/%Y/%m/%d/')
     social_link_3 = models.CharField(max_length=200)
     is_published = models.BooleanField(default=True)
+    partners_title = models.CharField(max_length=30, null=True)
+    client_title = models.CharField(max_length=30, null=True)
+    client_text = models.CharField(max_length=200, null=True)
+
+
 
     def __str__(self):
         return self.banner_title

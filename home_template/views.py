@@ -48,11 +48,12 @@ def index(request):
         return HttpResponse('Invalid header found.')
 
 
-
   cards = Card.objects.filter(is_published=True)
   cards_team = cards.filter(card_type='T')
   cards_service = cards.filter(card_type='S')
   cards_banner = cards.filter(card_type='B')
+  cards_partners = cards.filter(card_type='P')
+  cards_clients = cards.filter(card_type='C')
   template = Template.objects.filter(is_published=True)
   if template:
     template = template[0]
@@ -61,9 +62,12 @@ def index(request):
     'cards_service':cards_service,
     'cards_banner':cards_banner,
     'cards_team':cards_team,
+    'cards_partners': cards_partners,
+    'cards_clients': cards_clients,
     'template':template,
     'menu':menu,
     'form':form,
+
   }
 
   return render(request,'index.html',context)
