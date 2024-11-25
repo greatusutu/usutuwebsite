@@ -340,20 +340,19 @@ img {
 .about_container {
     margin: 0 -12px;
     display: flex;
-    align-items: center;
+    /*align-items: center; /* remove*/
     flex-flow: row wrap;
 }
 
 .about_image {
     margin: 0 12px;
-    border-radius: 30px;
+    border-radius: 35px !important;
 }
 
-.curved-image {
-    border-radius: 30px;
-}
+
 .about_text {
     margin: 0 12px;
+    width:400px
 }
 
 /* Services */
@@ -470,6 +469,20 @@ img {
 
 /*clients*/
 
+/* For fixing the slider... remove or adjust if needed */
+.slick-dots {
+    bottom: 10px;
+}
+
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #000;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #F36D21;
+}
+/* For fixing the slider */
 
     .section_heading_big {
         width: 80%;
@@ -497,6 +510,7 @@ img {
     align-items: stretch;
     margin: 0 -12px;
     justify-content: space-evenly;
+    /*overflow: hidden;*/
 }
 
 .clients_box_items {
