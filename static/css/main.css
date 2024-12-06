@@ -469,7 +469,8 @@ img {
 
 /*clients*/
 
-/* For fixing the slider... remove or adjust if needed */
+/* For fixing the slider... remove or adjust
+ if needed */
 .slick-dots {
     bottom: 10px;
 }
